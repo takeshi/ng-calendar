@@ -52,10 +52,6 @@ class Month {
     }
 
     init() {
-        let now = new Date();
-        this.year = now.getFullYear();
-        this.month = now.getMonth();
-
         let day = new Date(this.year, this.month, 1);
 
         while (day.getMonth() == this.month) {
@@ -82,7 +78,7 @@ export class MonthController {
     weeks: Week[];
     weekLabels: string[];
 
-    constructor() {
+    constructor(private $scope: angular.IScope) {
         this.init();
     }
 
@@ -93,11 +89,18 @@ export class MonthController {
 
     init() {
         this.weekLabels = Week.WeekLabels;
-        let now = new Date();
-        this.year = now.getFullYear();
-        this.month = now.getMonth();
-        let month = new Month(this.year, this.month);
-        this.days = month.days;
-        this.weeks = month.weeks;
+
+        let reflesh = () => {
+            let month = new Month(this.year, this.month - 1);
+            this.days = month.days;
+            this.weeks = month.weeks;
+        }
+
+        this.$scope.$watch(() => {
+            return this.month + this.year * 100;
+        }, reflesh);
+
     }
+
+
 }
