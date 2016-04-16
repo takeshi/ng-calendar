@@ -1,0 +1,19 @@
+{
+  "name": "cal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^1.13.0"
+  },
+  "scripts": {
+    "webpack": "webpack -w ",
+    "tsc:server": "tsc -w -p app",
+    "server": "node ./node_modules/node-dev/bin/node-dev build/server/app.js",
+    "sass": "node ./node_modules/node-sass/bin/node-sass -w  -o build/client -r app/client build/client/app.css --source-map true",
+    "start": "node_modules/.bin/concurrent \"npm run server\" \"npm run tsc:server\" \"npm run webpack\" \"npm run sass\" "
+  },
+  "author": "",
+  "license": "ISC"
+}
