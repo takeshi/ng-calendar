@@ -6,7 +6,7 @@
         "sourceMap": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "outDir": "biuld"
+        "outDir": "build"
     },
     "exclude": [
         "node_modules",
