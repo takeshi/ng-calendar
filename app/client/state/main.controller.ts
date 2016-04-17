@@ -7,7 +7,7 @@ export class MainController {
     selected: Day;
 
     constructor() {
-
+        this.selected = Day.today;
     }
 
     select(day: Day) {
