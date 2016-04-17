@@ -1,0 +1,10 @@
+<div class="s-month">
+    <div class="s-month_head" ng-click="$ctrl.toYear()">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+         {{$ctrl.selected.year}}
+    </div>
+    <month 
+       year="$ctrl.selected.year"
+       month="$ctrl.selected.month" 
+    />
+</div>

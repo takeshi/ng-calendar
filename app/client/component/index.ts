@@ -1,9 +1,13 @@
 import {loadAsComponent} from "../module";
 
-import {MonthComponent} from "./month.component.ts";
 import {YearComponent} from "./year.component.ts";
+import {YearMonthComponent} from "./year-month.component.ts";
+import {MonthComponent} from './month.component.ts';
 
 export function load() {
-    loadAsComponent(MonthComponent);
+
+    loadAsComponent(YearMonthComponent);
     loadAsComponent(YearComponent);
+    loadAsComponent(MonthComponent);
+    
 }

@@ -1,0 +1,55 @@
+.year-month {
+    &_month{
+        width: 175px;
+        margin-bottom: 3px;
+        margin-top: 3px;
+        font-size: 20px;
+        margin-bottom: 4px;
+        color: red;
+    }
+    
+    &_week {
+        height: 25px;
+        width:25px;
+        display:inline-block;
+        text-align: center;
+        padding-top: 5px;
+        padding-right: 0px;
+        border-radius: 15px;
+        a {
+            color: black;           
+        }
+        
+    }
+    
+    &_selected{
+        
+        background-color: black;
+        a {
+            color: white;           
+        }
+
+    }
+
+    &_today{
+
+        background-color: red;
+        a {
+            color: white;           
+        }
+        
+        &:hober{
+            color: white;        
+        }
+        
+    }
+        
+    &_otherMonth{
+
+        a {
+            color:lightgray;       
+        }
+
+    }
+    
+}

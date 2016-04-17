@@ -1,22 +1,31 @@
 import {Day} from '../module';
+import {State} from '../module';
 
+@State('main', {
+    url: '/',
+    template: require('html!./main.html')
+})
 export class MainController {
 
     year: number = 2016;
 
     selected: Day;
 
-    constructor() {
+    constructor(private $state: angular.ui.IStateService) {
         this.selected = Day.today;
     }
 
     select(day: Day) {
-        console.log('main', day);
-        this.selected = day;
+        console.log(day);
+        // this.selected = day;
+        this.$state.go('month', {
+            year: day.year,
+            month: day.month
+        })
     }
 
     today() {
-        this.year = new Date().getFullYear();
+        this.year = Day.today.year;
         this.selected = Day.today;
     }
 

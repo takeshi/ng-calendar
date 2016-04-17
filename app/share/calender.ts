@@ -51,9 +51,9 @@ export class Day {
     static create(args: {
         year: number,
         month: number,
-        date: number
+        date?: number
     }) {
-        return Day.of(new Date(args.year, args.month - 1, args.date));
+        return Day.of(new Date(args.year, args.month - 1, args.date || 1));
     }
 
     static of(date: Date) {

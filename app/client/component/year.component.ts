@@ -6,18 +6,27 @@ import {SelectDay, Day} from '../module';
     bindings: {
         year: '=',
         selected: '=',
-        select: '&'
+        select: '&',
+        selectmonth: '&'
     }
 })
 export class YearComponent {
 
     selected: Day;
     select: SelectDay;
+    selectmonth: SelectDay;
 
     _select(day: Day) {
         this.select({
             $day: day
-        });        
+        });
     }
+
+    _selectMonth($day: Day) {
+        this.selectmonth({
+            $day: $day
+        });
+    }
+
 
 }

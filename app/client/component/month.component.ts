@@ -1,5 +1,5 @@
-import {Component} from '../module';
-import {SelectDay, Day, Week, Month} from '../../share/calender';
+import {Component, SelectDay, Week, Day, Month} from '../module';
+
 
 @Component('month', {
     template: require('html!./month.html'),
@@ -14,33 +14,15 @@ export class MonthComponent {
 
     year: number;
     month: number;
-    days: Day[];
-    weeks: Week[];
-    weekLabels: string[];
+    select: SelectDay;
     selected: Day;
 
-    select: SelectDay;
+    weekLabels: string[];
+    days: Day[];
+    weeks: Week[];
 
     constructor(private $scope: angular.IScope) {
         this.init();
-    }
-
-
-    _select(day: Day) {
-        this.select({
-            $day: day
-        })
-    }
-
-    isIncludeMonth(day: Day) {
-        return this.year === day.year && this.month === day.month;
-    }
-
-    isSelected(day: Day) {
-        if (!this.selected) {
-            return false;
-        }
-        return Day.eq(day, this.selected);
     }
 
     init() {
@@ -57,5 +39,29 @@ export class MonthComponent {
         }, reflesh);
 
     }
+
+    _select(day: Day) {
+        if (this.select) {
+            this.select({
+                $day: day
+            })
+        }
+    }
+
+    hasTask(day: Day) {
+        return day.day === 2;
+    }
+
+    isIncludeMonth(day: Day) {
+        return this.year === day.year && this.month === day.month;
+    }
+
+    isSelected(day: Day) {
+        if (!this.selected) {
+            return false;
+        }
+        return Day.eq(day, this.selected);
+    }
+
 
 }
