@@ -1,4 +1,4 @@
-import {loadAsState} from '../module';
+import {loadAsState, angularModule} from '../module';
 
 import {MainController} from './main.controller';
 import {MonthController} from './month.controller';
@@ -9,5 +9,8 @@ export function load() {
     loadAsState(MainController);
     loadAsState(MonthController);
     loadAsState(WeekController);
-    
+
+    angularModule.config(($urlRouterProvider: angular.ui.IUrlRouterProvider) => {
+        $urlRouterProvider.otherwise('/');
+    });
 }
