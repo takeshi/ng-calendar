@@ -8,6 +8,7 @@ export class Day {
     month: number;
     date: number;
     day: number;
+    week: number;
 
     toString() {
         return `${this.year}/${this.month}/${this.date}`;
@@ -62,6 +63,10 @@ export class Day {
         day.month = date.getMonth() + 1;
         day.date = date.getDate();
         day.day = date.getDay();
+
+        let firstDay = new Date(day.year, day.month - 1, 1);
+
+        day.week = Math.ceil((day.date + firstDay.getDay()) / 7) - 1;
         return day;
     }
 }
@@ -87,7 +92,7 @@ export class Week {
     }
 
     init() {
-        let day = new Date(this.year, this.month, 1);
+        let day = new Date(this.year, this.month - 1, 1);
         day.setDate(day.getDate() - day.getDay());
         day.setDate(day.getDate() + 7 * (this.week));
         for (let i = 0; i < 7; i++) {
@@ -115,9 +120,9 @@ export class Month {
     }
 
     init() {
-        let day = new Date(this.year, this.month, 1);
+        let day = new Date(this.year, this.month - 1, 1);
 
-        while (day.getMonth() == this.month) {
+        while ((day.getMonth() + 1) % 12 == this.month % 12) {
             this.days.push(Day.of(day));
             day.setDate(day.getDate() + 1);
         }
@@ -126,7 +131,7 @@ export class Month {
             let week = new Week(this.year, this.month, i);
             this.weeks.push(week);
             let next = week.nextWeekFirstDay();
-            if (this.month + 1 != next.month) {
+            if (this.month % 12 != next.month % 12) {
                 break;
             }
         }

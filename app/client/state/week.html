@@ -1,0 +1,31 @@
+<div class="s-week">
+    <div class="s-week_head">
+        <span ng-click="$ctrl.toMonth()">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+            {{$ctrl.selected.month}}月        
+         </span>
+    </div>    
+    <div class="s-week_week">
+        <div ng-repeat="day in $ctrl.week.days" class="s-week_day" ng-class="{
+                's-week_selected':$ctrl.isSelected(day),
+                's-week_today':day.isToday
+            }">
+            <a ng-if="!day.otherMonth" ng-click="$ctrl.select(day)">
+            {{day.date}}
+            </a>
+            <div class="month_have" ng-if="$ctrl.hasTask(day)">
+            </div>
+        </div>
+    </div>
+    <div class="s-week_hours">
+        <div ng-repeat="hour in $ctrl.hours" class="s-week_hour">
+            <span class="s-week_oclock">
+            {{hour}}:00
+                <span class="s-week_oclockLine">
+                </span>
+            </span>
+           
+        </div>
+    </div>
+</div>
+

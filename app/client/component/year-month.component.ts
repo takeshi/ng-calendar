@@ -55,13 +55,13 @@ export class YearMonthComponent {
         this.weekLabels = Week.WeekLabels;
 
         let reflesh = () => {
-            let month = new Month(this.year, this.month - 1);
+            let month = new Month(this.year, this.month);
             this.days = month.days;
             this.weeks = month.weeks;
         }
 
         this.$scope.$watch(() => {
-            return this.month + this.year * 100;
+            return this.month + this.year * 12;
         }, reflesh);
 
     }

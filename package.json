@@ -1,12 +1,29 @@
 {
-  "name": "cal",
+  "name": "ng-calender",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "dependencies": {},
+  "main": "webpack.config.js",
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-ui-router": "^0.2.18",
+    "angular-animate": "^1.5.3",
+    "express": "^4.13.4",
+    "font-awesome": "^4.6.1",
+    "foundation": "^4.2.1-1",
+    "jquery": "^2.2.3",
+    "sequelize": "^3.21.0",
+    "zone.js": "^0.6.11"
+  },
   "devDependencies": {
+    "concurrently": "^2.0.0",
+    "html-loader": "^0.4.3",
+    "node-dev": "^3.1.0",
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.2.0",
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10",
     "webpack": "^1.13.0",
-    "webpack-livereload-plugin": "^0.8.1"
+    "webpack-livereload-plugin": "^0.8.1"    
   },
   "scripts": {
     "webpack": "webpack -w ",
@@ -15,6 +32,17 @@
     "sass": "node ./node_modules/node-sass/bin/node-sass -w  -o build/client -r app/client build/client/app.css --source-map true",
     "start": "node_modules/.bin/concurrent \"npm run server\" \"npm run tsc:server\" \"npm run webpack\" \"npm run sass\" "
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takeshi/ng-calendar.git"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "author": "takeshi.kondo@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/takeshi/ng-calendar/issues"
+  },
+  "homepage": "https://github.com/takeshi/ng-calendar#readme"
 }

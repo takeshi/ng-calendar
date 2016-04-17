@@ -32,7 +32,12 @@ export class MonthController {
     }
 
     select(day: Day) {
-        this.selected = day;
+        // this.selected = day;
+        this.$state.go('week', {
+            year: day.year,
+            month: day.month,
+            date: day.date
+        });
     }
 
 }
