@@ -1,10 +1,12 @@
 <div class="s-month">
     <div class="s-month_head" ng-click="$ctrl.toYear()">
         <i class="fa fa-angle-left" aria-hidden="true"></i>
-         {{$ctrl.selected.year}}
+         {{$ctrl.year}}
     </div>
     <month 
-       year="$ctrl.selected.year"
-       month="$ctrl.selected.month" 
+       year="$ctrl.year"
+       month="$ctrl.month" 
+       selected="$ctrl.selected"
+       select="$ctrl.select($day)"
     />
 </div>

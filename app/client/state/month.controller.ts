@@ -12,13 +12,13 @@ interface IStateParams extends angular.ui.IStateParamsService {
 export class MonthController {
 
     selected: Day;
+    year: number;
+    month: number;
 
     constructor(
         private $stateParams: IStateParams,
         private $state: angular.ui.IStateService
-
     ) {
-        this.selected = Day.today;
         this.init();
     }
 
@@ -27,10 +27,8 @@ export class MonthController {
     }
 
     init() {
-        this.selected = Day.create({
-            year: parseInt(this.$stateParams.year),
-            month: parseInt(this.$stateParams.month)
-        });
+        this.year = parseInt(this.$stateParams.year);
+        this.month = parseInt(this.$stateParams.month);
     }
 
     select(day: Day) {
