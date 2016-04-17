@@ -1,6 +1,6 @@
 import * as state from './state';
-import * as directives from './directives';
+import * as component from './component';
 
-state.init();
-directives.init();
+state.load();
+component.load();
 

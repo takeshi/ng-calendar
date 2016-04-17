@@ -1,4 +1,9 @@
-<input type="number" ng-model="year" ng-init="year=2016">
-<input type="number" ng-model="month" ng-init="month=4">
+<div class="main">
+    <year 
+        month="month" 
+        year="$ctrl.year" 
+        select="$ctrl.select($day)"
+        selected="$ctrl.selected"        
+    />
 
-<month month="month" year="year" />
+</div>
