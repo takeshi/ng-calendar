@@ -1,0 +1,21 @@
+<div class="month">
+
+    <div class="month_month">
+        {{$ctrl.month}}月 
+    </div>
+
+    <div ng-repeat="week in $ctrl.weeks">
+
+        <div ng-repeat="day in week.days" class="month_week" ng-class="{
+                'month_selected':($ctrl.isIncludeMonth(day) && $ctrl.isSelected(day)),
+                'month_otherMonth':!$ctrl.isIncludeMonth(day),
+                'month_today':day.isToday
+            }">
+            <a ng-if="!day.otherMonth" ng-click="$ctrl._select(day)">
+            {{day.date}}
+            </a>
+        </div>
+
+    </div>
+
+</div>
